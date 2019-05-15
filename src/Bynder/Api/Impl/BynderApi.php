@@ -88,6 +88,10 @@ class BynderApi implements IBynderApi
                 'auth' => 'oauth',
             ];
 
+            if (!isset($requestOptions['timeout'])) {
+                $requestOptions['timeout'] = 10;
+            }
+
             // Configures request Client (adding proxy, etc.)
             if (isset($settings['requestOptions']) && is_array($settings['requestOptions'])) {
                 $requestOptions += $settings['requestOptions'];
